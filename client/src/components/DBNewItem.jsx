@@ -9,6 +9,8 @@ import { alertDanger, alertNULL, alertSuccess } from "../context/actions/alertAc
 import { motion } from "framer-motion";
 import { buttonClick } from '../animations';
 import { MdOutlineOpenInNew } from 'react-icons/md';
+import { addNewProduct, getAllProducts } from '../api';
+import { setAllProducts } from '../context/actions/productActions';
 
 const DBNewItem = () => {
   const [itemName, setItemName] = useState("");
@@ -67,7 +69,28 @@ const DBNewItem = () => {
     })
   };
   
-  const submitNewData = () => { };
+  const submitNewData = () => {
+    const data ={
+      product_name: itemName,
+      product_category: category,
+      product_price: price,
+      imageURL: imageDownloadURL,
+    };
+    addNewProduct(data).then(res => {
+      dispatch(alertSuccess('New Item added'))
+      setTimeout(() => {
+        dispatch(alertNULL());
+      },3000);
+      setImageDownloadURL(null);
+      setItemName("");
+      setPrice("");
+      setCategory(null);
+
+    });
+    getAllProducts().then(data => {
+      dispatch(setAllProducts(data));
+    });
+   };
   return (
     <div className='flex items-center justify-center flex-col pt-6 px-24 w-full'>
       <div className='border border-gray-300 rounded-md p-4 w-full flex flex-col items-center justify-center gap-4'>
