@@ -36,7 +36,15 @@ const DBHome = () => {
       {
         label: 'Category wise Count',
         backgroundColor: '#f87979',
-        data: [drinks?.length,deserts?.length,fruits?.length,rice?.length,curry?.length,chinese?.length,bread?.length],
+        data: [
+          drinks?.length,
+          deserts?.length,
+          fruits?.length,
+          rice?.length,
+          curry?.length,
+          chinese?.length,
+          bread?.length,
+        ],
       },
     ],
   }}
@@ -52,7 +60,13 @@ const DBHome = () => {
     labels: ['Orders', 'Delivered', 'Cancelled', 'Paid', 'Non-Paid'],
     datasets: [
       {
-        backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
+        backgroundColor: [
+          '#51FF00',
+          '#00B6FF',
+          '#008BFF',
+          '#FFD100',
+          '#FF00FB',
+        ],
         data: [40, 20, 80, 10 ,54],
       },
     ],

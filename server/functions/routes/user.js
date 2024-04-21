@@ -34,33 +34,32 @@ router.get("/jwtVerification", async (req, res) => {
 });
 
 const listAllUsers = (nextPageToken) => {
-  admin.auth()
+  admin
+    .auth()
     .listUsers(1000, nextPageToken)
     .then((listUsersResult) => {
       listUsersResult.users.forEach((rec) => {
         data.push(rec.toJSON());
       });
       if (listUsersResult.pageToken) {
-        
         listAllUsers(listUsersResult.pageToken);
       }
     })
     .catch((er) => {
-      console.log((er));
+      console.log(er);
     });
 };
 listAllUsers();
 
-router.get("/all",async(req,res) => {
+router.get("/all", async (req, res) => {
   listAllUsers();
   try {
-    return res.status(200).send({success:true, data:data, dataCount})
-    
-  } catch (er) {
+    return res.status(200).send({ success: true, data: data, dataCount });
+  } catch (err) {
     return res.send({
-      success:false, msg:'Error in listing users :,${er}',
+      success: false,
+      msg: "Error in listing users :,${er}",
     });
-    
   }
 });
 

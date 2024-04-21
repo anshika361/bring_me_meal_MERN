@@ -1,5 +1,4 @@
-const initialState = [];
-const productReducer = (state = initialState, action) => {
+const productReducer = (state = null, action) => {
   switch (action.type) {
     case "GET_ALL_PRODUCTS":
       return state; // No change when getting all products

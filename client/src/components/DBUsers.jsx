@@ -19,7 +19,7 @@ const DBUsers = () => {
   return <div className='flex items-center justify-self-center gap-4 pt-6 w-full'>
   <DataTable
   columns={[
-    {title : "Image", field : "imageURL", render:(rowData) => (
+    {title : "Image", field : "photoURL", render:(rowData) => (
       <img src={rowData.photoURL ? rowData.photoURL : Avatar} alt={rowData.product_name}
       className="w-32 h-16 object-contain rounded-md"
       />
@@ -49,7 +49,7 @@ const DBUsers = () => {
   title = "List of Users"
   //actions ={[
   //  {
-  //    icons : "edit",
+  //    icon : "edit",
   //    tooltip : "Edit Data",
   //    onclick: (event, rowData) => {
   //      alert("You want to edit" + rowData.productId);
@@ -57,7 +57,7 @@ const DBUsers = () => {
   //    },
   //  },
   //  {
-  //    icons : "delete",
+  //    icon : "delete",
   //    tooltip : "Delete Data",
   //    onclick: (event, rowData) => {
   //      if (window.confirm("Are you sure, you want to perform this action")) 
@@ -75,7 +75,7 @@ const DBUsers = () => {
   //    },
   //  },
   //]}
-  />
+  /> 
 </div>
 
 };
