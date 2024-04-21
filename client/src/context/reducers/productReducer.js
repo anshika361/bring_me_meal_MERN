@@ -1,14 +1,12 @@
-const productReducer = (state = null,action) => {
-    switch(action.type){
-        case "GET_ALL_PRODUCT":
-            return state;
-        case "SET_ALL_PRODUCT":
-            return action.product;
-        default:
-            return state;
-
-
-    }
+const productReducer = (state = null, action) => {
+  switch (action.type) {
+    case "GET_ALL_PRODUCTS":
+      return state; // No change when getting all products
+    case "SET_ALL_PRODUCTS":
+      return action.products; // Set products when receiving new data
+    default:
+      return state; // Default case returns the current state
+  }
 };
 
 export default productReducer;
