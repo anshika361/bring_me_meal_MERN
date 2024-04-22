@@ -62,7 +62,7 @@ router.delete("/delete/:productId", async (req, res) => {
   try {
     await db
       .collection("products")
-      .doc("/${productId}/")
+      .doc(`/${productId}/`)
       .delete()
       .then((result) => {
         return res.status(200).send({ success: true, data: result });
