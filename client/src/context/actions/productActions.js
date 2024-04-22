@@ -5,7 +5,7 @@ export const setAllProducts = (products) => {
     };
 };
 
-export const getAllProducts = (products) => {
+export const getAllProducts = () => {
     return{
         type : "GET_ALL_PRODUCTS",
         

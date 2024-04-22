@@ -2,8 +2,8 @@ import React from 'react';
 import {DataTable} from '../components';
 import { HiCurrencyRupee } from '../assets/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteAProduct } from '../api';
-import { setAllProducts,getAllProducts } from '../context/actions/productActions';
+import { deleteAProduct, getAllProducts } from '../api';
+import { setAllProducts } from '../context/actions/productActions';
 import { alertNULL, alertSuccess } from '../context/actions/alertActions';
 
 
@@ -44,14 +44,14 @@ const DBItems = () => {
         {
           icon : "edit",
           tooltip : "Edit Data",
-          onclick: (event, rowData) => {
+          onClick: (event, rowData) => {
             alert("You want to edit" + rowData.productId);
           },
         },
         {
           icon : "delete",
           tooltip : "Delete Data",
-          onclick: (event, rowData) => {
+          onClick: async (event, rowData) => {
             if (window.confirm("Are you sure, you want to perform this action")) 
             {
               deleteAProduct(rowData.productId).then((res) => {
@@ -64,7 +64,6 @@ const DBItems = () => {
                 });
               });
             } 
-
           },
         },
       ]}
