@@ -55,7 +55,7 @@ export const getAllUsers = async () => {
   }
 };
 
-//add an item to cart 
+//add an item to cart
 //add new items to the cart
 export const addNewItemToCart = async (user_id, data) => {
   try {
@@ -94,4 +94,25 @@ export const increaseItemQuantity = async (user_id, productId, type) => {
   }
 };
 
+export const getAllOrders = async () => {
+  try {
+    const res = await axios.get(`${baseURL}/api/products/orders`);
+    return res.data.data;
+  } catch (error) {
+    return null;
+  }
+};
 
+// update the order status
+export const updateOrderSts = async (order_id, sts) => {
+  try {
+    const res = await axios.post(
+      `${baseURL}/api/products/updateOrder/${order_id}`,
+      null,
+      { params: { sts: sts } }
+    );
+    return res.data.data;
+  } catch (error) {
+    return null;
+  }
+};

@@ -35,8 +35,7 @@ const Cart = () => {
       cart: cart,
       total: total,
     };
-    axios
-      .post(`${baseURL}/api/products/create-checkout-session`, { data })
+    axios.post(`${baseURL}/api/products/create-checkout-session`, { data })
       .then((res) => {
         if (res.data.url) {
           window.location.href = res.data.url;
@@ -48,7 +47,7 @@ const Cart = () => {
   return (
     <motion.div
       {...slideIn}
-      className="fixed z-50 top-0 right-0 w-300 md:w-508 bg-lightOverlay backdrop-blur-md shadow-md h-screen"
+      className="fixed z-50 top-0 right-0 w-370 md:w-508 bg-cardOverlay backdrop-blur-md shadow-md h-full"
     >
       <div className="w-full flex items-center justify-between py-4 pb-12 px-6">
         <motion.i
@@ -74,11 +73,11 @@ const Cart = () => {
                   <CartItemCard key={i} index={i} data={item} />
                 ))}
             </div>
-            <div className="bg-zinc-800 rounded-t-[60px] w-full h-[35%] flex flex-col items-center justify-center px-4 py-6 gap-24">
+            <div className="bg-zinc-800 rounded-t-[60px] w-full h-[75%] flex flex-col items-center justify-center px-4 py-6 gap-14">
               <div className="w-full flex items-center justify-evenly">
                 <p className="text-3xl text-zinc-500 font-semibold">Total</p>
                 <p className="text-3xl text-orange-500 font-semibold flex items-center justify-center gap-1">
-                  <HiCurrencyRupee className="text-primary" />
+                 <HiCurrencyRupee className="text-primary" />
                   {total}
                 </p>
               </div>
