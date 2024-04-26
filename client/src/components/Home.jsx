@@ -25,10 +25,7 @@ const Home = () => {
         </p>
 
         <p className="text-textColor text-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ipsam
-          doloribus et similique distinctio, rem deleniti ipsa, nesciunt vitae
-          labore voluptates sunt ducimus mollitia id libero! Nostrum expedita
-          libero recusandae?
+          Welcome to Bring Me Meal! Explore a world of culinary delights right at your fingertips. Browse our menu, place your order, and enjoy delicious meals delivered straight to your doorstep. It's that easy!
         </p>
         <motion.button
           {...buttonClick}
